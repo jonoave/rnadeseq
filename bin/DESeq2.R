@@ -373,9 +373,9 @@ write.table(DE_genes_final_table, "differential_gene_expression/final_gene_table
 
 ############################## TRANSFORMED AND NORMALIZED COUNTS ###################
 # rlog transformation
-rld <- rlog(cds, blind=FALSE, nsub=400)
+rld <- rlog(cds, blind=FALSE)
 # vst transformation
-vsd <- vst(cds, blind=FALSE)
+vsd <- vst(cds, blind=FALSE, nsub=400)
 
 # write normalized values to a file
 rld_names <- merge(x=gene_names, y=assay(rld), by.x = "Ensembl_ID", by.y="row.names")
