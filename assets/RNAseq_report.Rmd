@@ -182,7 +182,7 @@ The read mapping and gene assignment statistics, together with other quality con
 
 The table below, extracted from the `MultiQC` report, shows a summary of the bioinformatics analysis quality control.
 
-```{r echo=FALSE, results='asis'}
+```{r echo=FALSE, eval=F, results='asis'}
 library(formattable)
 df_DE <- read.table(file = paste0(wd,"/QC/multiqc_data/multiqc_general_stats.txt"), header=TRUE, sep="\t")
 is.num <- sapply(df_DE, is.numeric)
@@ -238,14 +238,14 @@ The read mapping statistics to the reference genome for each sample are shown be
 
 ### Percentages {-}
 <center>
-```{r, echo=F, out.width="160%", dpi=1800, fig.cap="STAR: Mapping Statistics", fig.align='center'}
+```{r, echo=F, eval=F, out.width="160%", dpi=1800, fig.cap="STAR: Mapping Statistics", fig.align='center'}
 knitr::include_graphics(paste0(wd, "/QC/multiqc_plots/svg/mqc_star_alignment_plot_1_pc.svg"))
 ```
 </center>
 
 ### Number of reads {-}
 <center>
-```{r, echo=F, out.width="160%", dpi=1200, fig.cap="STAR: Mapping Statistics", fig.align='center'}
+```{r, echo=F, eval=F, out.width="160%", dpi=1200, fig.cap="STAR: Mapping Statistics", fig.align='center'}
 knitr::include_graphics(paste0(wd, "/QC/multiqc_plots/svg/mqc_star_alignment_plot_1.svg"))
 ```
 </center>
@@ -263,14 +263,14 @@ to two different genes at the same time making the assignment ambiguous. \
 
 ### Percentages {-}
 <center>
-```{r, echo=F, out.width="160%", dpi=1200, fig.cap="featureCounts: Assignments", fig.align='center'}
+```{r, echo=F, eval=F, out.width="160%", dpi=1200, fig.cap="featureCounts: Assignments", fig.align='center'}
 knitr::include_graphics(paste0(wd, "/QC/multiqc_plots/svg/mqc_featureCounts_assignment_plot_1_pc.svg"))
 ```
 </center>
 
 ### Number of reads {-}
 <center>
-```{r, echo=F, out.width="160%", dpi=1200, fig.cap="featureCounts: Assignments", fig.align='center'}
+```{r, echo=F, eval=F, out.width="160%", dpi=1200, fig.cap="featureCounts: Assignments", fig.align='center'}
 knitr::include_graphics(paste0(wd, "/QC/multiqc_plots/svg/mqc_featureCounts_assignment_plot_1.svg"))
 ```
 </center>
@@ -282,14 +282,14 @@ In RNAseq experiments, the majority of the reads should be assigned to CDS exons
 
 ### Percentages {-}
 <center>
-```{r, echo=F, out.width="160%", dpi=1200, fig.cap="RSeQC: Read Distribution", fig.align='center'}
+```{r, echo=F, eval=F, out.width="160%", dpi=1200, fig.cap="RSeQC: Read Distribution", fig.align='center'}
 knitr::include_graphics(paste0(wd, "/QC/multiqc_plots/svg/mqc_rseqc_read_distribution_plot_1_pc.svg"))
 ```
 </center>
 
 ### Number of reads {-}
 <center>
-```{r, echo=F, out.width="160%", dpi=1200, fig.cap="RSeQC: Read Distribution", fig.align='center'}
+```{r, echo=F, eval=F, out.width="160%", dpi=1200, fig.cap="RSeQC: Read Distribution", fig.align='center'}
 knitr::include_graphics(paste0(wd, "/QC/multiqc_plots/svg/mqc_rseqc_read_distribution_plot_1.svg"))
 ```
 </center>
