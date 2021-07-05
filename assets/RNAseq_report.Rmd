@@ -187,20 +187,20 @@ library(formattable)
 df_DE <- read.table(file = paste0(wd,"/QC/multiqc_data/multiqc_general_stats.txt"), header=TRUE, sep="\t")
 is.num <- sapply(df_DE, is.numeric)
 df_DE[is.num] <- lapply(df_DE[is.num], round, 2)
-/* columns <- c("Sample",
+<!-- columns <- c("Sample",
             "FastQC_mqc.generalstats.fastqc.total_sequences",
             "FastQC_mqc.generalstats.fastqc.percent_duplicates",
             "FastQC_mqc.generalstats.fastqc.percent_gc",
             "Cutadapt_mqc.generalstats.cutadapt.percent_trimmed",
             "STAR_mqc.generalstats.star.uniquely_mapped_percent",  
-            "featureCounts_mqc.generalstats.featurecounts.percent_assigned") */
+            "featureCounts_mqc.generalstats.featurecounts.percent_assigned")-->
 columns <- c("Sample",
             "FastQC_mqc.generalstats.fastqc.total_sequences",
             "FastQC_mqc.generalstats.fastqc.percent_duplicates",
             "FastQC_mqc.generalstats.fastqc.percent_gc",
             "Cutadapt_mqc.generalstats.cutadapt.percent_trimmed",
             "Samtools_mqc-generalstats-samtools-reads_properly_paired_percent",  
-            "featureCounts_mqc.generalstats.featurecounts.percent_assigned")--  
+            "featureCounts_mqc.generalstats.featurecounts.percent_assigned")  
 df_DE_selected = df_DE[,columns]
 df_DE_selected$Sample <- substr(df_DE_selected$Sample, 1, 10)
 colnames(df_DE_selected) <- c("Sample", "C1", "C2", "C3", "C4", "C5", "C6")
