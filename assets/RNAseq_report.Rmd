@@ -231,8 +231,8 @@ table_complete %>%
 Note: Duplicate intercept (%) is the percentage of duplicate reads for the intercept of a linear model of duplicate reads vs read counts. High numbers of duplicates at low read counts can indicate low library complexity with technical duplication.
 
 \
- -->
-<!-- ## Mapping statistics {.tabset}
+
+## Mapping statistics {.tabset}
 
 The read mapping statistics to the reference genome for each sample are shown below. Typical values for a good mapping lie at >80% uniquely mapped reads.
 
