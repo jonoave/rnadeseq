@@ -169,7 +169,7 @@ kable(df_QA_neat) %>%
     scroll_box(width = "100%", height = "400px")
 ```
 
-# Read mapping and assignment
+<!-- # Read mapping and assignment
 
 In order to analyze the gene counts per sample, the sequencing reads need to be mapped to the reference genome, and assigned to genes or other genomic regions.
 Here, the read mapping and gene assignment statistics are summarized, among other read processing quality control parameters.
@@ -231,7 +231,7 @@ table_complete %>%
 Note: Duplicate intercept (%) is the percentage of duplicate reads for the intercept of a linear model of duplicate reads vs read counts. High numbers of duplicates at low read counts can indicate low library complexity with technical duplication.
 
 \
-
+ -->
 <!-- ## Mapping statistics {.tabset}
 
 The read mapping statistics to the reference genome for each sample are shown below. Typical values for a good mapping lie at >80% uniquely mapped reads.
