@@ -39,7 +39,7 @@ def helpMessage() {
       --relevel                     Tsv indicating list of factors (conditions in the metadata table) and the new level on which to relevel the factor. Check contrasts docs.
       --logFCthreshold              Threshold (int) to apply to Log 2 Fold Change to consider a gene as differentially expressed.
       --genelist                    Txt file with list of genes (one per line) of which to plot heatmaps for normalized counts across all samples.
-      --batch_effect                Turn on this flag if you wish to consider batch effects. You need to add the batch effect to the linear model too!                
+      --batch_effect                Turn on this flag if you wish to consider batch effects. You need to add the batch effect to the linear model too!
       --quote                       Signed copy of the offer.
       --kegg_blacklist              Txt file with list of pathways (one per line) that should be discarded for the KEGG pathway plotting (e.g. because the xml file in KEGG contains errors).
 
@@ -228,7 +228,7 @@ process get_software_versions {
     Rscript -e "library(plyr); write(x=as.character(packageVersion('plyr')), file='v_plyr.txt')"
     Rscript -e "library(vsn); write(x=as.character(packageVersion('vsn')), file='v_vsn.txt')"
     Rscript -e "library(gplots); write(x=as.character(packageVersion('gplots')), file='v_gplots.txt')"
-    Rscript -e "library(pheatmap); write(x=as.character(packageVersion('pheatmap')), file='v_pheatmap.txt')" 
+    Rscript -e "library(pheatmap); write(x=as.character(packageVersion('pheatmap')), file='v_pheatmap.txt')"
     Rscript -e "library(optparse); write(x=as.character(packageVersion('optparse')), file='v_optparse.txt')"
     Rscript -e "library(svglite); write(x=as.character(packageVersion('svglite')), file='v_svglite.txt')"
     scrape_software_versions.py &> software_versions_mqc.yaml
@@ -331,7 +331,8 @@ process Report {
     unzip $multiqc
     unzip $gprofiler
     mkdir QC
-    mv MultiQC/multiqc_plots/ MultiQC/multiqc_data/ MultiQC/multiqc_report.html QC/
+    // mv MultiQC/multiqc_plots/ MultiQC/multiqc_data/ MultiQC/multiqc_report.html QC/
+    mv MultiQC/multiqc_data/ MultiQC/multiqc_report.html QC/
     Execute_report.R --report '$baseDir/assets/RNAseq_report.Rmd' \
     --output 'RNAseq_report.html' \
     --proj_summary $proj_summary \
