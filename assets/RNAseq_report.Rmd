@@ -182,7 +182,7 @@ The read mapping and gene assignment statistics, together with other quality con
 
 The table below, extracted from the `MultiQC` report, shows a summary of the bioinformatics analysis quality control.
 
-```{r echo=FALSE, eval=F, results='asis'}
+```{r echo=FALSE, eval = FALSE, results='asis'}
 library(formattable)
 df_DE <- read.table(file = paste0(wd,"/QC/multiqc_data/multiqc_general_stats.txt"), header=TRUE, sep="\t")
 is.num <- sapply(df_DE, is.numeric)
@@ -625,7 +625,7 @@ An aggregation of the quality control for the RNAseq analysis was performed with
 The Nextflow-based nf-core pipeline `smrnaseq `r as.character(version[version$V1=="nf-core/smrnaseq",2])`` [^1] was used for the smrNAseq Bioinfomatics analysis.
 `FASTQC `r as.character(version[version$V1=="FASTQC",2])`` [^3] [@andrews2010fastqc] was used to determine quality of the FASTQ files.
 Subsequently, adapter trimming was conducted with `Trim Galore `r as.character(version[version$V1=="Trim Galore!",2])`` [^4] [@krueger2012trim].
-`Bowtie v`r substring(as.character(version[version$V1=="Bowtie",2]), 7, )`` [@Langmead2009] aligner was used to map the reads that passed the quality control to the reference genome.
+Bowtie v1.3.0`` [@Langmead2009ultrafast] aligner was used to map the reads that passed the quality control to the reference genome.
 An aggregation of the quality control for the smrnaseq analysis was performed with `MultiQC `r as.character(version[version$V1=="MultiQC",2])`` [^2] [@ewels2016multiqc].
 
 
