@@ -306,7 +306,7 @@ For PCA analysis and heatmap plotting, the regularized logarithm (rlog) normaliz
 The vst (variant stabilizing transformation) normalized counts are also provided.
 
 ## Principal component analysis (PCA)
-A PCA plot of the rlog normalized gene expression visualizes the clustering of samples according to their gene expression.
+A PCA plot of the vst (n=400) normalized gene expression visualizes the clustering of samples according to their gene expression.
 In this way, the overall effect of experimental conditions and sample grouping, and any batch effects are visualized.
 The original plot can be downloaded [here](./differential_gene_expression/plots/PCA_plot.pdf).
 
@@ -394,6 +394,7 @@ Volcano plots display the DE genes in Log2 Fold Change values (x axis)
 against their adjusted p-value (y axis) in a form of a -log10. Only significantly DE genes are shown (padj < 0.05).
 Genes were further considered DE with a Log2FC > `r log_FC_text` or < -`r log_FC_text` (the blue lines show this threshold).
 Here, volcano plots for all considered contrasts are shown. Hover over the dots to show the gene names.
+Please note that in the Volcano plots below the x axis is cut-ff at -5 and +5 thus more extreme values are not shown here
 
 ```{r, echo=F, message =F}
   library(gprofiler2)
@@ -625,12 +626,12 @@ An aggregation of the quality control for the RNAseq analysis was performed with
 The Nextflow-based nf-core pipeline `smrnaseq `r as.character(version[version$V1=="nf-core/smrnaseq",2])`` [^1] was used for the smrNAseq Bioinfomatics analysis.
 `FASTQC `r as.character(version[version$V1=="FASTQC",2])`` [^3] [@andrews2010fastqc] was used to determine quality of the FASTQ files.
 Subsequently, adapter trimming was conducted with `Trim Galore `r as.character(version[version$V1=="Trim Galore!",2])`` [^4] [@krueger2012trim].
-`Bowtie v1.3.0` [^5] [@langmead2009ultrafast] aligner was used to map the reads that passed the quality control to the reference genome.
+`Bowtie v1.3.0` [@langmead2009ultrafast] aligner was used to map the reads that passed the quality control to the reference genome.
 An aggregation of the quality control for the smrnaseq analysis was performed with `MultiQC `r as.character(version[version$V1=="MultiQC",2])`` [^2] [@ewels2016multiqc].
 
 
 ## Differential gene expression analysis
-The differential expression analysis was performed by the use of the `rnadeseq `r as.character(params$revision)`` pipeline [^5].
+The differential expression analysis was performed by the use of a fork of the `rnadeseq `r as.character(params$revision)`` pipeline [^5] which was done to adapt the workflow reporting of smrnaseq results.
 For differential expression analysis, the raw read count table resulting from `featureCounts` was processed with the R package `DESeq2 v`r packageVersion("DESeq2")`` [@love2014differential].
 
 <!-- If a DEU analysis has also been performed -->
