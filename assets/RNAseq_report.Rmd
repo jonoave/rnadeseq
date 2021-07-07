@@ -394,7 +394,7 @@ Volcano plots display the DE genes in Log2 Fold Change values (x axis)
 against their adjusted p-value (y axis) in a form of a -log10. Only significantly DE genes are shown (padj < 0.05).
 Genes were further considered DE with a Log2FC > `r log_FC_text` or < -`r log_FC_text` (the blue lines show this threshold).
 Here, volcano plots for all considered contrasts are shown. Hover over the dots to show the gene names.
-Please note that in the volcano plots below the x axis is cut-ff at -5 and +5 thus more extreme values are not shown here.
+Please note that in the volcano plots below the x axis is cut-ff at -5 and +5, thus more extreme values are not shown here.
 
 ```{r, echo=F, message =F}
   library(gprofiler2)
@@ -631,7 +631,7 @@ An aggregation of the quality control for the smrnaseq analysis was performed wi
 
 
 ## Differential gene expression analysis
-The differential expression analysis was performed by the use a fork of the `rnadeseq` pipeline [^5] which was done to adapt the workflow reporting of smrnaseq results.
+The differential expression analysis was performed by the use of a fork of the `rnadeseq` pipeline [^5] which was done to adapt the workflow reporting of smrnaseq results.
 For differential expression analysis, the raw read count table resulting from `featureCounts` was processed with the R package `DESeq2 v`r packageVersion("DESeq2")`` [@love2014differential].
 
 
